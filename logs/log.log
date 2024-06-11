@@ -76,3 +76,7 @@
 2024-06-11T10:31:24.652+02:00  INFO 15276 --- [g-40-shop] [http-nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
 2024-06-11T10:31:24.652+02:00  INFO 15276 --- [g-40-shop] [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
 2024-06-11T10:31:24.654+02:00  INFO 15276 --- [g-40-shop] [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2024-06-11T11:53:21.980+02:00  WARN 15276 --- [g-40-shop] [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=25m3s715ms878µs200ns).
+2024-06-11T11:57:09.282+02:00  INFO 15276 --- [g-40-shop] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-06-11T11:57:09.307+02:00  INFO 15276 --- [g-40-shop] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-06-11T11:57:09.323+02:00  INFO 15276 --- [g-40-shop] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.

@@ -5,6 +5,8 @@ import de.ait_tr.g_40_shop.domain.entity.Product;
 import de.ait_tr.g_40_shop.repository.ProductRepository;
 import de.ait_tr.g_40_shop.service.interfaces.ProductService;
 import de.ait_tr.g_40_shop.service.mapping.ProductMappingService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
@@ -12,6 +14,8 @@ import java.util.List;
 
 @Service
 public class ProductServiceImpl implements ProductService {
+
+    private Logger logger = LoggerFactory.getLogger(ProductServiceImpl.class);
 
     private final ProductRepository repository;
     private final ProductMappingService mappingService;
