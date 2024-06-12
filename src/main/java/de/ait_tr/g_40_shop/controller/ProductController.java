@@ -1,7 +1,10 @@
 package de.ait_tr.g_40_shop.controller;
 
 import de.ait_tr.g_40_shop.domain.dto.ProductDto;
+import de.ait_tr.g_40_shop.exception_handling.Response;
+import de.ait_tr.g_40_shop.exception_handling.exceptions.FirstTestException;
 import de.ait_tr.g_40_shop.service.interfaces.ProductService;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.math.BigDecimal;
@@ -92,5 +95,11 @@ public class ProductController {
     @GetMapping("/average-price")
     public BigDecimal getAveragePrice() {
         return service.getActiveProductsAveragePrice();
+    }
+
+    @ExceptionHandler(FirstTestException.class)
+
+    public Response handleException(FirstTestException e) {
+        return new Response(e.getMessage());
     }
 }

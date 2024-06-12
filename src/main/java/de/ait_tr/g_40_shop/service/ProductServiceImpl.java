@@ -2,6 +2,8 @@ package de.ait_tr.g_40_shop.service;
 
 import de.ait_tr.g_40_shop.domain.dto.ProductDto;
 import de.ait_tr.g_40_shop.domain.entity.Product;
+import de.ait_tr.g_40_shop.exception_handling.exceptions.FirstTestException;
+import de.ait_tr.g_40_shop.exception_handling.exceptions.ThirdTestException;
 import de.ait_tr.g_40_shop.repository.ProductRepository;
 import de.ait_tr.g_40_shop.service.interfaces.ProductService;
 import de.ait_tr.g_40_shop.service.mapping.ProductMappingService;
@@ -9,12 +11,14 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
+import java.awt.*;
 import java.math.BigDecimal;
 import java.util.List;
 
 @Service
 public class ProductServiceImpl implements ProductService {
 
+    private Logger logger = LoggerFactory.getLogger(ProductServiceImpl.class);
 
     private final ProductRepository repository;
     private final ProductMappingService mappingService;
@@ -52,12 +56,29 @@ public class ProductServiceImpl implements ProductService {
 //        return products;
     }
 
+//    @Override
+//    public ProductDto getById(Long id) {
+//
+//        logger.info("Method getById called with parameter {}", id);
+//        logger.warn("Method getById called with parameter {}", id);
+//        logger.error("Method getById called with parameter {}", id);
+//
+//        Product product = repository.findById(id).orElse(null);
+//
+//        if (product == null || !product.isActive()) {
+//            return null;
+//        }
+//
+//        return mappingService.mapEntityToDto(product);
+//    }
+
+
     @Override
     public ProductDto getById(Long id) {
         Product product = repository.findById(id).orElse(null);
 
         if (product == null || !product.isActive()) {
-            return null;
+            throw new ThirdTestException(String.format("Product with id %d not found", id));
         }
 
         return mappingService.mapEntityToDto(product);
